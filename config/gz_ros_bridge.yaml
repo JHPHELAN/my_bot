@@ -1,0 +1,56 @@
+# See https://github.com/gazebosim/ros_gz/blob/ros2/ros_gz_bridge/README.md
+---
+- ros_topic_name: "/clock"
+  gz_topic_name: "/clock"
+  ros_type_name: "rosgraph_msgs/msg/Clock"
+  gz_type_name: "gz.msgs.Clock"
+  direction: GZ_TO_ROS  # can be BIDIRECTIONAL or ROS_TO_GZ
+
+- ros_topic_name: "scan"
+  gz_topic_name: "/scan"
+  ros_type_name: "sensor_msgs/msg/LaserScan"
+  gz_type_name: "gz.msgs.LaserScan"
+  direction: GZ_TO_ROS
+
+- ros_topic_name: "pointcloud2d"
+  gz_topic_name: "/pointcloud2d"
+  ros_type_name: "sensor_msgs/msg/PointCloud2"
+  gz_type_name: "gz.msgs.PointCloudPacked"
+  direction: GZ_TO_ROS
+
+- ros_topic_name: "camera"
+  gz_topic_name: "/camera"
+  ros_type_name: "sensor_msgs/msg/Image"
+  gz_type_name: "gz.msgs.Image"
+  direction: GZ_TO_ROS
+
+- ros_topic_name: "camera_info"
+  gz_topic_name: "/camera_info"
+  ros_type_name: "sensor_msgs/msg/CameraInfo"
+  gz_type_name: "gz.msgs.CameraInfo"
+  direction: GZ_TO_ROS
+
+# see ~/template_ws/src/ros_gz/ros_gz_sim_demos/launch/depth_camera.launch.py
+- ros_topic_name: "depth_camera"
+  gz_topic_name: "/depth_camera"
+  ros_type_name: "sensor_msgs/msg/Image"
+  gz_type_name: "gz.msgs.Image"
+  direction: GZ_TO_ROS
+
+- ros_topic_name: "navsat"
+  gz_topic_name: "/navsat"
+  ros_type_name: "gps_msgs/msg/GPSFix"
+  gz_type_name: "gz.msgs.NavSat"
+  direction: GZ_TO_ROS
+
+- ros_topic_name: "imu"
+  gz_topic_name: "/imu"
+  ros_type_name: "sensor_msgs/msg/Imu"
+  gz_type_name: "gz.msgs.IMU"
+  direction: GZ_TO_ROS
+
+- #ros_topic_name: "odom"
+  #gz_topic_name: "/diff_cont/odom"
+  #ros_type_name: "nav_msgs/msg/Odometry"
+  #gz_type_name: "gz.msgs.Odometry"
+  #direction: GZ_TO_ROS
