@@ -20,5 +20,9 @@
     <material name="gray">
         <color rgba="0.6 0.6 0.6 1.0"/>
     </material>
-    
+
+    <material name="red">
+        <color rgba="1 0 0 1"/>
+    </material>
+
 </robot>

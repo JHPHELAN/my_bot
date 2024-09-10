@@ -3,7 +3,8 @@
 
     <xacro:include filename="robot_core.xacro"/>
     <xacro:include filename="robot_material.xacro"/>
-    <xacro:include filename="inertial_macros.xacro"/>
     <xacro:include filename="robot_gazebo.xacro"/>
+    <xacro:include filename="robot_lidar.xacro"/>
+    <xacro:include filename="inertial_macros.xacro"/>
 
 </robot>

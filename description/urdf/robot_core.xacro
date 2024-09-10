@@ -15,6 +15,9 @@
 <xacro:property name="wheel_mass" value="0.058"/>
 <xacro:property name="caster_mass" value="0.022"/>
 <xacro:property name="lidar_mass" value="0.207"/>
+<xacro:property name="lidar_radius" value="0.03025"/>
+<xacro:property name="lidar_height" value="0.016"/>
+<xacro:property name="lidar_stand_height" value="0.0424"/>
 <xacro:property name="BLANK" value="0.0"/>
 
     <!-- BASE LINK -->

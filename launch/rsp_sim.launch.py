@@ -51,24 +51,24 @@ def generate_launch_description():
         )]), launch_arguments={'use_sim_time': 'true'}.items()
     )
 
-    twist_mux_params = os.path.join(package_path,'config','twist_mux.yaml')
-    twist_mux = Node(
-        package="twist_mux",
-        executable="twist_mux",
-        namespace='/',
-        parameters=[twist_mux_params, {'use_sim_time': True}],
-        remappings=[('/cmd_vel_out','/diff_cont/cmd_vel_unstamped')]
-    )
+    # twist_mux_params = os.path.join(package_path,'config','twist_mux.yaml')
+    # twist_mux = Node(
+        # package="twist_mux",
+        # executable="twist_mux",
+        # namespace='/',
+        # parameters=[twist_mux_params, {'use_sim_time': True}],
+        # remappings=[('/cmd_vel_out','/diff_cont/cmd_vel_unstamped')]
+    # )
 
-    twist_stamper = Node(
-        package='twist_stamper',
-        executable='twist_stamper',
-        namespace='/',
+    # twist_stamper = Node(
+        # package='twist_stamper',
+        # executable='twist_stamper',
+        # namespace='/',
         # use_sim_time must be False here, or time stamp will be 0:
-        parameters=[{'use_sim_time': False}, {'frame_id': 'base_link'}],
-        remappings=[('/cmd_vel_in','/diff_cont/cmd_vel_unstamped'),
-                    ('/cmd_vel_out','/diff_cont/cmd_vel')]
-    )
+        # parameters=[{'use_sim_time': False}, {'frame_id': 'base_link'}],
+        # remappings=[('/cmd_vel_in','/diff_cont/cmd_vel_unstamped'),
+                    # ('/cmd_vel_out','/diff_cont/cmd_vel')]
+    # )
 
     # gazebo = IncludeLaunchDescription(
         # PythonLaunchDescriptionSource([os.path.join(
@@ -178,18 +178,17 @@ def generate_launch_description():
     )
 
     # Gazebo controller_manager is not subject to renaming through parameters, so we use topic relay here:
-    odom_relay = Node(
-        package='topic_tools',
-        executable='relay',
-        namespace='/',
-        parameters=[{ 'input_topic': '/diff_cont/odom', 'output_topic': '/odom'}],
-    )
+    # odom_relay = Node(
+        # package='topic_tools',
+        # executable='relay',
+        # namespace='/',
+        # parameters=[{ 'input_topic': '/diff_cont/odom', 'output_topic': '/odom'}],
+    # )
 
     gz_include = GroupAction(
         actions=[
 
             #SetRemap(src='/diff_cont/odom', dst='/odom'),
-
             gazebo_resource_path,
             gazebo_arguments,
             gazebo_ui,
@@ -198,7 +197,7 @@ def generate_launch_description():
             delayed_joint_broad_spawner,
             rviz,
             bridge,
-            odom_relay
+            # odom_relay
         ]
     )
 
@@ -210,7 +209,7 @@ def generate_launch_description():
         # spawn_entity
         rsp,
         joystick,
-        twist_mux,
-        twist_stamper,
+        # twist_mux,
+        # twist_stamper,
         gz_include
     ])
